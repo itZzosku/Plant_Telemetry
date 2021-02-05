@@ -1,49 +1,6 @@
 /*
- Basic ESP32 MQTT example
-
- This sketch demonstrates the capabilities of the pubsub library in combination
- with the ESP32 board/library.
-
- It connects to an MQTT server then:
-  - publishes "hello world" to the topic "outTopic" every two seconds
-  - subscribes to the topic "inTopic", printing out any messages
-    it receives. NB - it assumes the received payloads are strings not binary
-  - If the first character of the topic "inTopic" is an 1, switch ON the ESP Led,
-    else switch it off
-
- It will reconnect to the server if the connection is lost using a blocking
- reconnect function. See the 'mqtt_reconnect_nonblocking' example for how to
- achieve the same result without blocking the main loop.
-
- To install the ESP32 Arduino:
-  - https://github.com/espressif/arduino-esp32
-
- #include "Adafruit_seesaw.h"
-
-Adafruit_seesaw ss;
-
-void setup() {
-  Serial.begin(115200);
-
-  Serial.println("seesaw Soil Sensor example!");
-  
-  if (!ss.begin(0x36)) {
-    Serial.println("ERROR! seesaw not found");
-    while(1);
-  } else {
-    Serial.print("seesaw started! version: ");
-    Serial.println(ss.getVersion(), HEX);
-  }
-}
-
-void loop() {
-  float tempC = ss.getTemp();
-  uint16_t capread = ss.touchRead(0);
-
-  Serial.print("Temperature: "); Serial.print(tempC); Serial.println("*C");
-  Serial.print("Capacitive: "); Serial.println(capread);
-  delay(100);
-} 
+TODO
+Stacked branch
 
 */
 
@@ -298,7 +255,7 @@ void loop()
     Serial.print("Publish message: ");
     Serial.println(msg);
     Serial.println();
-    client.publish("Values", msg);
+    client.publish("PlantValues", msg);
     client.disconnect();
   }
 }
